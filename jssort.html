@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test by Tom Rutka</title>
+        <script src="js/jquery-1.10.2.min.js"></script>
+
+<style>
+   body { 
+        color: #000;
+        width: 480px;
+    }
+    a {
+      color: #009fe3;
+    }
+    #content {
+      margin: 10px 0;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      width: 33%;
+      float: left;
+    }
+    #items:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+</style>
+
+</head>
+
+<body>
+
+  <div class="container">
+    
+    <p><strong>Popular Destinations</strong></p> 
+    <div id="items">
+
+    </div>
+
+    <div id="content"></div>
+
+  </div>
+
+<script>
+$(document).ready( function() {
+
+var cities = [{name: "Moscow", count: 12, content: "<p>description</p>"}, {name:
+"Amsterdam", count: 25, content: "html"}, {name: "Lisbon", count: 15,
+content: "html"}, {name: "Berlin", count: 19, content: "html"},
+{name: "Madrid", count: 25, content: "html"},
+];
+
+// sort by city name
+function sortObj(a, b){
+  var aCity = a.name.toLowerCase();
+  var bCity = b.name.toLowerCase(); 
+  if ( aCity < bCity ) return -1;
+  if ( aCity > bCity ) return 1;
+  return 0;
+}
+  cities.sort(sortObj);
+
+  // create list of cities
+  var temp = '<ul>';
+
+  for (var i = 0; i < cities.length; i++ ) {
+    // using try catch due to ie8
+    try {
+      var row = "<a href='#" + i + "'>" + cities[i].name + "</a>" + " (" + cities[i].count + ")";
+      temp += '<li>' + row + '</li>';
+
+    }
+    catch (e) {
+      
+    }
+    
+  }
+  // end list
+  temp += '</ul>';
+
+  // render list
+  $('#items').html(temp);
+
+  // add click event listener to links
+  $('#items').find('a').click( function(event) {
+    event.preventDefault();
+
+    var city = this.href.slice( this.href.indexOf('#')+1 );
+    // appent city content to div
+    $('#content').html(cities[city].content);
+
+  });
+
+});
+</script>
+</body>    
+
+
+</html>
