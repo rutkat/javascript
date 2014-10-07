@@ -175,7 +175,30 @@ var MyApp = {
             allTimes   = [] ,
             i = 0;
 
-      
+        for (i; i < totalGameCount; i++) {
+
+            // advance game time by one week for a total of game weeks * games per night
+            for (var j = 0; j < gamesPerNight; j++) {
+
+                // Increment game time by i weeks
+                var nextDateTime = new XDate( startTimeStamp )
+                nextDateTime = nextDateTime.addWeeks( i )
+
+                if (j > 0) {
+                    // increment time of game per day
+                    var minutes = j * gameLength
+                    
+                    var tempTime = nextDateTime.addMinutes( minutes )
+
+                    allTimes.push( nextDateTime )
+                } 
+                else {
+                    allTimes.push( nextDateTime )
+                } 
+            }
+            // console.log(allTimes[i].toString('MM-dd-yyyy HH:mm'))
+        }
+        return allTimes
 	} , 
     /* generate and render complete game schedules */
 	setSchedules: function (scheduleCount, teamMapped, schedulesMapped) {
@@ -223,31 +246,31 @@ var MyApp = {
 
 		console.log('started')
 		// test 1 - count schedules
-		console.log(MyApp.getScheduleCount(3, 6))
-		console.log(MyApp.getScheduleCount(3, 9))
-		console.log(MyApp.getScheduleCount(4, 8))
-		console.log(MyApp.getScheduleCount(4, 12))
+		// console.log(MyApp.getScheduleCount(3, 6))
+		// console.log(MyApp.getScheduleCount(3, 9))
+		// console.log(MyApp.getScheduleCount(4, 8))
+		// console.log(MyApp.getScheduleCount(4, 12))
 
 
-		// test 2 - league team names
-		console.log('Volleyball teams: ', MyApp.getTeamList('volleyball'))
-		console.log('Kickball teams: '  , MyApp.getTeamList('kickball'))
+		// // test 2 - league team names
+		// console.log('Volleyball teams: ', MyApp.getTeamList('volleyball'))
+		// console.log('Kickball teams: '  , MyApp.getTeamList('kickball'))
 
-		// test 3 - get map of teams for schedules
-		var teamMapped = MyApp.getTeamMap(3, 6, 'volleyball')
-		for (var teams in teamMapped) {
-			console.log(teamMapped[teams])
-		}
+		// // test 3 - get map of teams for schedules
+		// var teamMapped = MyApp.getTeamMap(3, 6, 'volleyball')
+		// for (var teams in teamMapped) {
+		// 	console.log(teamMapped[teams])
+		// }
         
 	    // test 4 - get map of scheduled games
-	    var schedulesMapped = MyApp.getScheduledTimes("10-10-2014", "12:00", 6, 2, 30)
+	    var schedulesMapped = MyApp.getScheduledTimes("10-15-2014", "14:00", 6, 2, 30)
         console.log('schedulesMapped:', schedulesMapped)
 
 	   	var scheduleCount = MyApp.getScheduleCount(3, 6)
         var teamsMapped = MyApp.getTeamMap(3, 6, 'volleyball')
         console.log('teamsMapped:', teamsMapped);
         
-        var schedulesMapped = MyApp.getScheduledTimes("10-10-2014", "12:00", 6, 2, 30)
+        // var schedulesMapped = MyApp.getScheduledTimes("10-10-2014", "12:00", 6, 2, 30)
 
         // test 5 - generate and render schedules
         MyApp.setSchedules(scheduleCount, teamsMapped, schedulesMapped)
