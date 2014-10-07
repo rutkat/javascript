@@ -1,16 +1,19 @@
-/***
-    3 Challenges
+/*******************************************************************
+    Algorithm Challenges by Tom Rutka
 
-    Mapper to prepare map of teams using team names for games schedules.
+    [Easy Difficulty]
+    -Mapper to prepare map of teams using team names for games schedules.
     function getTeamMap(teamCount, gameWeeks, leagueName)
 
-     Mapper to prepare map of scheduled games. 
+    [Medium Difficulty]
+    -Mapper to prepare map of scheduled games. 
     function getScheduledTimes(startDate, startTime, gameWeeks, gamesPerNight, gameLength)
 
+    [BONUS]
+    -Generate and render complete game schedules
+    function setSchedules(scheduleCount, teamMapped, schedulesMapped)
 
-
-
-*/
+********************************************************************/
 (function () {
 // Simulated leagues with teams
 var Leagues = {
@@ -104,7 +107,7 @@ var MyApp = {
         // console.log(allTimes[i].toString('MM-dd-yyyy HH:mm'))
         
 	} , 
-    /* generate and render complete game schedules */
+    /* Generate and render complete game schedules */
 	setSchedules: function (scheduleCount, teamMapped, schedulesMapped) {
 
         if (!scheduleCount || !teamMapped || !schedulesMapped) {
