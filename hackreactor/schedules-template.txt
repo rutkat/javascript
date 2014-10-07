@@ -1,0 +1,42 @@
+Row is the amount of games
+Column is the amount of weeks
+
+A. 3 Teams (6 weeks):
+1vs2   1vs3   
+1vs2   2vs3   
+1vs3   2vs3   
+1vs2   1vs3   
+1vs2   2vs3   
+1vs3   2vs3   
+
+B. 3 Teams (9 weeks):
+1vs2   1vs3   
+1vs2   2vs3   
+1vs3   2vs3   
+1vs2   1vs3   
+1vs2   2vs3   
+1vs3   2vs3   
+1vs2   1vs3   
+1vs2   2vs3   
+1vs3   2vs3  
+
+
+C. 4 Teams (8 weeks):
+1vs2   3vs4   
+1vs3   2vs4   
+1vs4   2vs3   
+1vs2   3vs4   
+1vs3   2vs4   
+1vs4   2vs3   
+
+D. 4 Teams (12 weeks):
+1vs2   3vs4   
+1vs3   2vs4   
+1vs4   2vs3   
+1vs2   3vs4   
+1vs3   2vs4   
+1vs4   2vs3   
+1vs2   3vs4   
+1vs3   2vs4   
+1vs4   2vs3   
+ 
