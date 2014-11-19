@@ -1,4 +1,5 @@
-//If you need to create a reference to an existing method of an object, be sure to do it within that object's namespace to preserve the value of 'this'.
+// If you need to create a reference to an existing method of an object, 
+// be sure to do it within that object's namespace to preserve the value of 'this'.
 var MyObject = function() {}
 
 MyObject.prototype.whoAmI = function() {
